@@ -41,3 +41,7 @@ variable "aws_nat_amis" {
     sa-east-1 = "ami-22169b4e"
   }
 }
+variable "azure_instance_name" {}
+variable "azure_instance_username" {}
+variable "azure_instance_password" {}
+

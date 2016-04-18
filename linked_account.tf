@@ -63,6 +63,18 @@ resource "aws_security_group" "blogpost_link_sg" {
     protocol    = "tcp"
     cidr_blocks = ["${aws_eip.blogpost_nat_eip.public_ip}/32"]
   }
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["${azure_instance.MysqlServer.vip_address}/32"]
+  }
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["${azure_instance.MysqlServer.vip_address}/32"]
+  }
 # outbound internet access
   egress {
     from_port   = 0
